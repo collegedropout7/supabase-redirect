@@ -1,0 +1,24 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>앱으로 이동 중...</title>
+    <script>
+      window.onload = () => {
+        window.location.href = "realApp://verifyComplete";
+        setTimeout(() => {
+          document.getElementById("fallback").style.display = "block";
+        }, 3000);
+      };
+    </script>
+  </head>
+  <body>
+    <h2>앱으로 이동 중입니다...</h2>
+    <p>자동으로 열리지 않으면 아래 버튼을 눌러주세요.</p>
+    <div id="fallback" style="display: none;">
+      <a href="realApp://verifyComplete">앱 열기</a><br />
+      <a href="https://play.google.com/store/apps/details?id=your.package.name">앱 설치</a>
+    </div>
+  </body>
+</html>
