@@ -6,12 +6,13 @@
     <title>Redirecting...</title>
     <script>
       const params = new URLSearchParams(window.location.search);
-      const code = params.get("code");
+      // Supabase가 code 대신 token_hash로 보내는 경우도 있음
+      const code = params.get("code") || params.get("token_hash");
       const type = params.get("type");
       const deepLink = `realapp://verifyComplete?code=${code}&type=${type}`;
 
       if (code) {
-        window.location.href = deepLink;
+        window.location.replace(deepLink);
       } else {
         document.write("<p>인증 코드가 없습니다. 브라우저에서 다시 시도해주세요.</p>");
       }
