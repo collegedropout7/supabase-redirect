@@ -2,11 +2,22 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>이메일 인증 완료</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const type = params.get("type");
+      const deepLink = `realapp://verifyComplete?code=${code}&type=${type}`;
+
+      if (code) {
+        window.location.href = deepLink;
+      } else {
+        document.write("<p>인증 코드가 없습니다. 브라우저에서 다시 시도해주세요.</p>");
+      }
+    </script>
   </head>
   <body>
-    <h1>✅ 인증이 완료되었습니다!</h1>
-    <p>이제 앱을 다시 열고 로그인하세요.</p>
+    <p>앱으로 이동 중...</p>
   </body>
 </html>
-
